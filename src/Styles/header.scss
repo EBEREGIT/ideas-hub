@@ -1,0 +1,32 @@
+header {
+    position: relative;
+    background: $purple-900;
+    height: 50vh;
+    color: white !important;
+    text-align: center;
+
+    h1{
+        padding-top: 5% !important;
+        padding-bottom: 2% !important;
+        font-family: $Monoton;
+    }
+
+    .carousel-inner{
+        margin-top: 2%;
+        padding-bottom: 5% !important;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: -0%;
+        top: 100%;
+        z-index: 10;
+        display: block;
+        height: 30px;
+        background-size: 30px 100%;
+        background-image: linear-gradient(135deg, $purple-900 25%, transparent 25%), linear-gradient(225deg, $purple-900 25%, transparent 25%);
+        background-position: 0 0;
+    }
+}
