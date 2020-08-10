@@ -1,0 +1,43 @@
+.navbar {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: white !important;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+    a {
+        font-size: 1.2rem;
+        color: $purple-900 !important;
+        font-weight: normal;
+
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+
+    form {
+        margin-left: 30%;
+
+        input{
+            &:focus{
+                border-color: $purple-900;
+            }
+        }
+
+        button {
+            background-color: $purple-900;
+            color: white;
+            border-color: $purple-900 !important;
+
+            &:hover {
+                background-color: white;
+                color: $purple-900;
+            }
+
+        }
+    }
+}
