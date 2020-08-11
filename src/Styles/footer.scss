@@ -1,11 +1,33 @@
 footer {
     margin-top: 10%;
-    background-color: $purple-500;
+    background-color: $purple-900;
     color: white;
 
+    form{
+        margin-right: 4%;
+        margin-bottom: 5%;
+
+        button {
+            background-color: $purple-900 !important;
+            color: white;
+            border-color: white !important;
+
+            &:hover {
+                background-color: white !important;
+                color: $purple-900 !important;
+            }
+
+        }
+    }
+
     .footer-headings{
-        padding-top: 5%;
-        padding-bottom: 5%;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        text-decoration: underline;
+        
+        span{
+            margin-left: 4%;
+        }
     }
 
     .lower-footer {
@@ -21,7 +43,7 @@ footer {
     }
 
     .list-group-item{
-        background-color: $purple-500;
+        background-color: $purple-900;
         a{
             color: white;
         }
