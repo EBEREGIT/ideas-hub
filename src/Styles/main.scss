@@ -1,3 +1,52 @@
 main{
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    padding-bottom: 5%;
+
+    .card{
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+
+        a{
+            color: $purple-500;
+        }
+
+        .list-group-item{
+            font-size: 0.7em;
+            color: $purple-100;
+
+            span{
+                color: $purple-900;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .pagination{
+        display: flex;
+        justify-content: center;
+
+        li{
+            .active{
+                background-color: $purple-900 !important;
+            }
+
+            a{
+                color: $purple-900 !important; 
+            }
+            
+        }
+        
+    }
+
+    .see-all-btn{
+        color: $purple-900;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        font-size: larger;
+
+        &:focus{
+            text-decoration: underline;
+        }
+    }
 }

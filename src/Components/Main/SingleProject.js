@@ -16,7 +16,7 @@ export default function SingleProject() {
 
         {/* Date created and editted */}
         <ListGroup className="list-group-flush">
-          <ListGroupItem>Cr: 11 Aug, 2020 | Ed: 12 Nov, 2020</ListGroupItem>
+          <ListGroupItem><span>Cr:</span> 11 Aug, 2020 | <span>Ed:</span> 12 Nov, 2020</ListGroupItem>
         </ListGroup>
 
         {/* more details */}
