@@ -1,6 +1,6 @@
 import React from "react";
 import SingleProject from "./SingleProject";
-import { Col, Row, Pagination, Button } from "react-bootstrap";
+import { Col, Row, Pagination } from "react-bootstrap";
 
 let projects = [];
 

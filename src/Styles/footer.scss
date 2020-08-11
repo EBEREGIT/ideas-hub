@@ -1,0 +1,29 @@
+footer {
+    margin-top: 10%;
+    background-color: $purple-500;
+    color: white;
+
+    .footer-headings{
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    .lower-footer {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: black;
+        text-align: center;
+
+        a{
+            color: $purple-100 !important;
+        }
+        
+    }
+
+    .list-group-item{
+        background-color: $purple-500;
+        a{
+            color: white;
+        }
+    }
+}
