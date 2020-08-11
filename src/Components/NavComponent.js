@@ -40,8 +40,6 @@ export default function NavComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             {/* menu */}
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#link">Contact</Nav.Link>
             <Nav.Link href="#link">Add Project</Nav.Link>
 
             {/* Account */}
