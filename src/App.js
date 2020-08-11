@@ -1,13 +1,15 @@
 import React from "react";
 import "./Styles/App.scss";
-import NavComponent from "./Components/Header/NavComponent";
-import Header from "./Components/Header";
+import NavComponent from "./Components/NavComponent";
+import LandingPage from "./Pages/LandingPage";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <>
       <NavComponent />
-      <Header />
+      <LandingPage />
+      <Footer />
     </>
   );
 }

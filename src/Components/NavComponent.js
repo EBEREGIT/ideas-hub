@@ -11,16 +11,17 @@ import {
 export default function NavComponent() {
   return (
     <>
-      <Navbar expand="lg" className="wrapper">
+      <Navbar expand="lg" className="wrapper" sticky="top">
         {/* logo */}
-        <img
+        <Navbar.Brand href="/">
+          <img
           src="https://res.cloudinary.com/dunksyqjj/image/upload/v1597094132/LogoMakr_6cGYpQ_h58asa.png"
           width="35"
           height="50"
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-        {/* <Navbar.Brand href="#home">IdeasHub</Navbar.Brand> */}
+        </Navbar.Brand>
 
         {/* search form */}
         <Form inline>
@@ -39,8 +40,6 @@ export default function NavComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             {/* menu */}
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#link">Contact</Nav.Link>
             <Nav.Link href="#link">Add Project</Nav.Link>
 
             {/* Account */}

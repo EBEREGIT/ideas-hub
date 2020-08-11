@@ -1,0 +1,52 @@
+footer {
+    margin-top: 10%;
+    background-color: $purple-900;
+    color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+    form{
+        margin-right: 4%;
+        margin-bottom: 5%;
+
+        button {
+            background-color: $purple-900 !important;
+            color: white;
+            border-color: white !important;
+
+            &:hover {
+                background-color: white !important;
+                color: $purple-900 !important;
+            }
+
+        }
+    }
+
+    .footer-headings{
+        padding-top: 50px;
+        padding-bottom: 20px;
+        text-decoration: underline;
+        
+        span{
+            margin-left: 4%;
+        }
+    }
+
+    .lower-footer {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        background-color: black;
+        text-align: center;
+
+        a{
+            color: $purple-100 !important;
+        }
+        
+    }
+
+    .list-group-item{
+        background-color: $purple-900;
+        a{
+            color: white;
+        }
+    }
+}
