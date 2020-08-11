@@ -1,19 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { CSSReset, ThemeProvider } from "@chakra-ui/core";
-import customTheme from "./customTheme";
-import "./Styles/index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+// external imports
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// assets
+import './Styles/index.css';
+
+// internal imports
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={customTheme}>
-      <CSSReset />
-      <App />
-    </ThemeProvider>
+    <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

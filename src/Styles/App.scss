@@ -1,5 +1,38 @@
-$red: red;
+$purple-900: #32035F;
+$purple-500: #4D0392;
+$purple-100: #C1B3CE;
+$Righteous: "Righteous";
+$Monoton: "Monoton";
+$VarelaRound: "Varela Round";
 
-body{
-    background-color: $red;
+html,
+body {
+    max-width: 100%;
+}
+
+body {
+    .wrapper {
+        margin: auto;
+        width: 96%;
+    }
+
+    * {
+        font-family: $VarelaRound;
+    }
+
+    // All headings have this style
+    .headings {
+        padding-top: 10% !important;
+        padding-bottom: 5% !important;
+        text-align: center;
+        font-weight: bolder;
+    }
+
+    @import "./nav.scss";
+
+    @import "./header.scss";
+
+    @import "./main.scss";
+
+    @import "./footer.scss";
 }
