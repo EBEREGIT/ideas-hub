@@ -10,18 +10,14 @@ export default function Header() {
       <Carousel>
         {/* item 1 */}
         <Carousel.Item>
-          <h4>
-            Find Portfolio-Worthy-Project That Will Attract Recruiters, Dear
-            Begginers
-          </h4>
+          <h4>Find Portfolio-Worthy-Project That Will Attract Recruiters</h4>
+          <p>Dear Begginers</p>
         </Carousel.Item>
 
         {/* item 2 */}
         <Carousel.Item>
-          <h4>
-            Suggest a Portfolio-Worthy-Project, Dear Recruiters and advanced
-            Developers
-          </h4>
+          <h4>Suggest a Portfolio-Worthy-Project</h4>
+          <p>Dear Recruiters and advanced Developers</p>
         </Carousel.Item>
       </Carousel>
     </header>
