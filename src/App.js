@@ -10,6 +10,7 @@ import NavComponent from "./Components/NavComponent";
 import LandingPage from "./Pages/LandingPage";
 import Footer from "./Components/Footer";
 import NotFound from "./Pages/NotFound";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       {/* switch between pages */}
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route path="*" component={NotFound} />
       </Switch>
 
