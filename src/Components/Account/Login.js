@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import Register from "./Register";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -46,6 +47,8 @@ const LoginForm = () => {
           <Form.Label>Password </Form.Label>
           <Form.Control type="password" placeholder="Password not less than 6 characters" />
         </Form.Group>
+
+        <p>Don't have an account? <Register/></p>
 
         <Button>Login</Button>
       </Form>
