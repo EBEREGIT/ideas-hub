@@ -6,7 +6,11 @@ import {
   Form,
   FormControl,
   Button,
+  Dropdown
 } from "react-bootstrap";
+import AddProject from "./Nav/AddProject";
+import Login from "./Account/Login";
+import Register from "./Account/Register";
 
 export default function NavComponent() {
   return (
@@ -40,12 +44,13 @@ export default function NavComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             {/* menu */}
-            <Nav.Link href="#link">Add Project</Nav.Link>
+            <AddProject />
 
             {/* Account */}
             <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <Login />
+              <Dropdown.Divider />
+              <Register />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
