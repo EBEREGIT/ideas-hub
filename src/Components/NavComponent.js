@@ -6,8 +6,11 @@ import {
   Form,
   FormControl,
   Button,
+  Dropdown
 } from "react-bootstrap";
 import AddProject from "./Nav/AddProject";
+import Login from "./Account/Login";
+import Register from "./Account/Register";
 
 export default function NavComponent() {
   return (
@@ -45,8 +48,9 @@ export default function NavComponent() {
 
             {/* Account */}
             <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Register</NavDropdown.Item>
+              <Login />
+              <Dropdown.Divider />
+              <Register />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

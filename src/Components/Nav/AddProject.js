@@ -13,9 +13,10 @@ export default function AddProject() {
   return (
     <>
       {/* pop toggle button */}
-      <Button variant="primary" onClick={handleShow}>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a onClick={handleShow}>
         Add Project
-      </Button>
+      </a>
 
       {/* modal */}
       <Modal show={show} onHide={handleClose}>
