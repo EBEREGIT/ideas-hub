@@ -28,6 +28,21 @@ body {
         font-weight: bolder;
     }
 
+    .not-found{
+        background-color: $purple-100;
+        margin-top: 5%;
+        margin-bottom: 5%;
+
+        h1{
+            font-family: $Monoton;
+            font-size: 5em;
+        }
+
+        section{
+            padding: 5%;
+        }
+    }
+
     @import "./nav.scss";
 
     @import "./header.scss";
