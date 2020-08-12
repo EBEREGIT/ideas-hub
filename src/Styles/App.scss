@@ -1,9 +1,4 @@
-$purple-900: #32035F;
-$purple-500: #4D0392;
-$purple-100: #C1B3CE;
-$Righteous: "Righteous";
-$Monoton: "Monoton";
-$VarelaRound: "Varela Round";
+@import "./variables.scss";
 
 html,
 body {
@@ -20,28 +15,9 @@ body {
         font-family: $VarelaRound;
     }
 
-    // All headings have this style
-    .headings {
-        padding-top: 10% !important;
-        padding-bottom: 5% !important;
-        text-align: center;
-        font-weight: bolder;
-    }
+    @import "./headings.scss";
 
-    .not-found{
-        background-color: $purple-100;
-        margin-top: 5%;
-        margin-bottom: 5%;
-
-        h1{
-            font-family: $Monoton;
-            font-size: 5em;
-        }
-
-        section{
-            padding: 5%;
-        }
-    }
+    @import "./notFound.scss";
 
     @import "./nav.scss";
 
