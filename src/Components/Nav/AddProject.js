@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import InstructionURLToolTip from "../Helpers/InstructionURLToolTip";
+import SampleURLToolTip from "../Helpers/SampleURLTooltip";
+import OtherDetailsToolTip from "../Helpers/OtherDetailsToolTip";
 
 export default function AddProject() {
   const [show, setShow] = useState(false);
@@ -35,13 +38,13 @@ const AddProjectForm = () => {
     <>
       <Form>
         {/* project title */}
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>Project Title</Form.Label>
+        <Form.Group controlId="projectTitle">
+          <Form.Label>Project Title </Form.Label>
           <Form.Control type="text" placeholder="Project Title" />
         </Form.Group>
 
         {/* seniority */}
-        <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Group controlId="seniority">
           <Form.Label>Seniority</Form.Label>
           <Form.Control as="select">
             <option>Select Seniority</option>
@@ -50,8 +53,9 @@ const AddProjectForm = () => {
         </Form.Group>
 
         {/* Sample Project URL */}
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="sampleURL">
           <Form.Label>Sample Project URL</Form.Label>
+          <SampleURLToolTip />
           <Form.Control
             type="url"
             placeholder="Enter a URL to an already existing project as a sample"
@@ -59,20 +63,23 @@ const AddProjectForm = () => {
         </Form.Group>
 
         {/*  Project Instruction URL */}
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="InstructionURL">
           <Form.Label>Project Instruction URL</Form.Label>
+          <InstructionURLToolTip />
           <Form.Control
             type="url"
-            placeholder="Enter a URL to instructions on how to carry out the project. It can be a google drive link"
+            placeholder="Enter a URL to instructions on how to carry out the project."
           />
         </Form.Group>
 
-        <Form.Group controlId="exampleForm.ControlTextarea1">
+        {/* other Details */}
+        <Form.Group controlId="otherDetails">
           <Form.Label>Other Details</Form.Label>
+          <OtherDetailsToolTip />
           <Form.Control
             as="textarea"
             rows="3"
-            placeholder="Enter any other details you think begginners should know. This could also be the instructions"
+            placeholder="Enter any other details you think beginners should know."
           />
         </Form.Group>
 
