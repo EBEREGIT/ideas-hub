@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import ProjectDetails from "../../ProjectDetails";
 
 export default function SingleProject() {
   return (
@@ -23,7 +24,7 @@ export default function SingleProject() {
 
         {/* more details */}
         <Card.Body>
-          <Card.Link href="#">See Full Details</Card.Link>
+          <ProjectDetails />
         </Card.Body>
       </Card>
     </Col>
