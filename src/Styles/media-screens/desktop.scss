@@ -1,0 +1,23 @@
+@include media('>desktop', '<=1300px') {
+
+    // navbar
+    .navbar {
+        .navbar-nav {
+            margin-left: 21%;
+
+        }
+
+        form {
+            margin-left: 31%;
+        }
+    }
+
+    // footer
+    footer {
+        .list-group-item {
+            margin-left: 0;
+            padding-left: 5%;
+        }
+
+    }
+}

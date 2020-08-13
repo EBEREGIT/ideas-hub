@@ -1,3 +1,4 @@
+@import "./include-media.scss";
 @import "./variables.scss";
 
 html,
@@ -6,14 +7,34 @@ body {
 }
 
 body {
+    background-color: $bg-purple;
+
     .wrapper {
         margin: auto;
         width: 96%;
     }
 
+    .custom-btn {
+        background-color: $purple-900;
+        border-color: $purple-900;
+
+        &:hover {
+            background-color: white;
+            color: $purple-900;
+        }
+    }
+
     * {
         font-family: $VarelaRound;
     }
+
+    .card{
+        border: 1px solid $purple-900;
+    }
+
+    @import "./dashboard.scss";
+
+    @import "./modal.scss";
 
     @import "./headings.scss";
 
@@ -26,4 +47,13 @@ body {
     @import "./main.scss";
 
     @import "./footer.scss";
+
+    // media query screen
+    @import "./media-screens/desktop.scss";
+
+    @import "./media-screens/tab-lg.scss";
+
+    @import "./media-screens/tab.scss";
+
+    @import "./media-screens/phone.scss";
 }
