@@ -1,0 +1,38 @@
+.modal {
+    .modal-content {
+        background-color: $bg-purple;
+
+        input {
+            &:focus {
+                border-color: $purple-900;
+                box-shadow: none;
+            }
+        }
+
+        textarea {
+            &:focus {
+                border-color: $purple-900;
+                box-shadow: none;
+            }
+        }
+
+        select {
+            option {
+
+                &:focus {
+                    background-color: $purple-900;
+                }
+            }
+
+
+            &:focus {
+                border-color: $purple-900;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .modal-title {
+        color: $purple-900;
+    }
+}

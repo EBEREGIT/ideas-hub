@@ -1,0 +1,100 @@
+@include media('>tablet', '<=desktop') {
+    
+// navbar
+.navbar {
+    a {
+        padding-top: 2%;
+        padding-bottom: 2%;
+        text-align: center;
+    }
+
+    form {
+        margin-left: 0 !important;
+
+        button {
+            margin-left: -16%;
+        }
+    }
+}
+
+// header
+header {
+    h1 {
+        padding-top: 10% !important;
+        padding-bottom: 5% !important;
+        font-family: $Monoton;
+    }
+
+    .carousel-inner {
+        font-size: 0.8rem;
+    }
+
+    &::after {
+        height: 10px;
+        background-size: 15px 100%;
+
+    }
+}
+
+// main
+main {
+    padding-bottom: 10%;
+
+    .headings {
+        padding-top: 15% !important;
+        padding-bottom: 10% !important;
+    }
+
+    .see-all-btn {
+        margin-top: 3%
+    }
+}
+
+// footer
+footer {
+    p {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    form {
+        padding-left: 5%;
+        padding-bottom: 5%;
+    }
+
+    .footer-headings {
+        margin-left: 5%;
+
+        span {
+            margin-left: 0;
+        }
+
+    }
+
+    #lower-footer {
+        h5 {
+            font-size: 1rem;
+        }
+    }
+
+    .list-group-item {
+        margin-left: 0;
+        padding-left: 5%;
+    }
+
+}
+
+// dashboard
+.dashboard {
+    h1 {
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+
+    h3 {
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+}
+    
+}

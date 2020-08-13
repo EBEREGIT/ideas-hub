@@ -15,7 +15,7 @@ export default function AddProject() {
       {/* pop toggle button */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a onClick={handleShow}>
-        Add Project
+        Add_Project
       </a>
 
       {/* modal */}
@@ -84,7 +84,7 @@ const AddProjectForm = () => {
           />
         </Form.Group>
 
-        <Button>Add Project</Button>
+        <Button className="custom-btn">Add Project</Button>
       </Form>
     </>
   );

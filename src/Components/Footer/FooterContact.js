@@ -4,7 +4,7 @@ import { Col, Form, Button } from "react-bootstrap";
 export default function FooterContact() {
   return (
     <Col xs={12} sm={12} md={4} lg={4}>
-      <h4 className="footer-headings">Contact</h4>
+      <h4 className="footer-headings">Leave a Message</h4>
 
       <Form>
         {/* email */}

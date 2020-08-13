@@ -7,7 +7,7 @@ export default function FooterAbout() {
       <h4 className="footer-headings">About</h4>
       <p>
         Recruiters always complain that they don’t see portfolio-worthy-projects
-        in most junior portfolio and so can't employ them.
+        in most junior portfolio and so can't hire them.
       </p>
 
       <p>

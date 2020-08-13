@@ -11,6 +11,7 @@ import {
 import AddProject from "./Nav/AddProject";
 import Login from "./Account/Login";
 import Register from "./Account/Register";
+import { FaSearch } from "react-icons/fa";
 
 export default function NavComponent() {
   return (
@@ -34,7 +35,7 @@ export default function NavComponent() {
             placeholder="Search"
             className="mr-sm-2 shadow-none"
           />
-          <Button>Search</Button>
+          <Button><FaSearch /></Button>
         </Form>
 
         {/* toggle button */}
@@ -42,7 +43,7 @@ export default function NavComponent() {
 
         {/* collapseable menu */}
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav>
             {/* menu */}
             <AddProject />
 
