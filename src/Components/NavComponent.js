@@ -6,7 +6,12 @@ import {
   Form,
   FormControl,
   Button,
+  Dropdown
 } from "react-bootstrap";
+import AddProject from "./Nav/AddProject";
+import Login from "./Account/Login";
+import Register from "./Account/Register";
+import { FaSearch } from "react-icons/fa";
 
 export default function NavComponent() {
   return (
@@ -30,7 +35,7 @@ export default function NavComponent() {
             placeholder="Search"
             className="mr-sm-2 shadow-none"
           />
-          <Button>Search</Button>
+          <Button><FaSearch /></Button>
         </Form>
 
         {/* toggle button */}
@@ -38,14 +43,15 @@ export default function NavComponent() {
 
         {/* collapseable menu */}
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav>
             {/* menu */}
-            <Nav.Link href="#link">Add Project</Nav.Link>
+            <AddProject />
 
             {/* Account */}
             <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <Login />
+              <Dropdown.Divider />
+              <Register />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

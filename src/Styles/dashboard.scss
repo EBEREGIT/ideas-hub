@@ -1,0 +1,22 @@
+.dashboard{
+    h1{
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    h3{
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
+
+    button{
+        background-color: white;
+        border-color: $purple-900;
+        margin-right: 2%;
+        box-shadow: none !important;
+
+        &:hover{
+            background-color: $purple-900;
+        }
+    }
+}

@@ -8,14 +8,30 @@
         font-size: 1.2rem;
         color: $purple-900 !important;
         font-weight: normal;
+        cursor: pointer;
 
         &:focus {
             text-decoration: underline;
         }
 
         &:hover {
-            text-decoration: underline;
+            text-decoration: underline !important;
             font-weight: bold;
+        }
+    }
+
+    .navbar-nav {
+        margin-left: 45%;
+
+        a {
+            margin-top: 2%;
+            padding-top: 0;
+            padding-left: 15%;
+        }
+
+        .dropdown {
+            padding-left: 15%;
+            padding-top: 1.2%;
         }
     }
 
@@ -32,6 +48,7 @@
             background-color: $purple-900;
             color: white;
             border-color: $purple-900 !important;
+            margin-left: -16%;
 
             &:hover {
                 background-color: white;
