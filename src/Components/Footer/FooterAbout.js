@@ -16,7 +16,7 @@ export default function FooterAbout() {
       </p>
 
       <p>
-        Ideas Hub solves this problem as Recruiters and other advanced
+        Ideas Repo solves this problem as Recruiters and other advanced
         developers/designers can upload the kind of project that can make junior
         developers/designers employable.
       </p>
