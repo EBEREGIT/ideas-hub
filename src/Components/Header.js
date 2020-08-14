@@ -4,7 +4,7 @@ import { Carousel } from "react-bootstrap";
 export default function Header() {
   return (
     <header className="spikes">
-      <h1>Ideas. Repo.</h1>
+      <h1>Ideas.  Repo.</h1>
 
       {/* slider */}
       <Carousel>
