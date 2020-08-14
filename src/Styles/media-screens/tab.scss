@@ -1,14 +1,36 @@
 @include media('>phone', '<=tablet') {
+
     // navbar
     .navbar {
         .navbar-toggler {
             margin-right: -2%;
         }
 
+        .navbar-collapse {
+            .navbar-nav {
+                margin: 0 !important;
+                padding: 0;
+
+                a {
+                    padding: 0;
+                    padding-bottom: 3%;
+                }
+
+                .dropdown {
+                    padding: 0;
+                    padding-bottom: 3%;
+                }
+            }
+        }
+
         .navbar-brand {
             margin-left: -2%;
             margin-right: 0;
             margin-top: -2%;
+        }
+
+        .navbar-nav {
+            text-align: center;
         }
 
         a {
@@ -111,4 +133,28 @@
             padding-bottom: 10%;
         }
     }
+}
+
+// phone in portrait mode
+@include media('>phone', '<=600px') {
+
+    // header
+    header {
+        h1 {
+            padding-top: 15% !important;
+        }
+    }
+
+}
+
+// phone iin landscape mode
+@include media('>600px', '<=tablet') {
+
+    // header
+    header {
+        h1 {
+            padding-top: 5% !important;
+        }
+    }
+
 }
