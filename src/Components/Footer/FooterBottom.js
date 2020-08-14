@@ -14,7 +14,7 @@ export default function FooterBottom() {
     <Col xs={12} sm={12} md={12} lg={12} id="lower-footer">
       <h5>
         Designed and Developed by
-        <a href="https://twitter.com/eberetwit"> Njoku Samson Ebere</a>
+        <a href="https://twitter.com/eberetwit"> Njoku S. E.</a>
       </h5>
 
       <IconContext.Provider
