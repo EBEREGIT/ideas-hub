@@ -21,6 +21,7 @@ export default function MainProjects() {
         <Pagination>
           <Pagination.First />
           <Pagination.Prev />
+          <Pagination.Ellipsis/>
           <Pagination.Next />
           <Pagination.Last />
         </Pagination>
