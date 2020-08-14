@@ -22,8 +22,26 @@
         }
     }
 
+    .navbar-collapse {
+        .navbar-nav {
+            margin: 0 !important;
+            padding: 0;
+            
+            a {
+                padding: 0;
+                padding-bottom: 2%;
+            }
+
+            .dropdown {
+                padding: 0;
+                padding-bottom: 2%;
+            }
+        }
+    }
+
+
     form {
-        margin-left: 20% !important;
+        margin-left: 7% !important;
 
         button {
             margin-left: -16%;
