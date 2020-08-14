@@ -10,7 +10,7 @@
             .navbar-nav {
                 margin: 0 !important;
                 padding: 0;
-                
+
                 a {
                     padding: 0;
                     padding-bottom: 3%;
@@ -133,4 +133,28 @@
             padding-bottom: 10%;
         }
     }
+}
+
+// phone in portrait mode
+@include media('>phone', '<=600px') {
+
+    // header
+    header {
+        h1 {
+            padding-top: 15% !important;
+        }
+    }
+
+}
+
+// phone iin landscape mode
+@include media('>600px', '<=tablet') {
+
+    // header
+    header {
+        h1 {
+            padding-top: 5% !important;
+        }
+    }
+
 }
