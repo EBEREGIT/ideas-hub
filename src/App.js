@@ -11,6 +11,7 @@ import LandingPage from "./Pages/LandingPage";
 import Footer from "./Components/Footer";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
+import Projects from "./Pages/Projects";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/projects" component={Projects} />
         <Route path="*" component={NotFound} />
       </Switch>
 
