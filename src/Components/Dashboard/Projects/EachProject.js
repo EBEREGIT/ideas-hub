@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Card, Button } from "react-bootstrap";
-import { RiDeleteBin5Line, RiEdit2Line } from "react-icons/ri";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import { IconContext } from "react-icons";
+import EditProject from "./EditProject";
 
 export default function EachProject() {
   return (
@@ -22,7 +23,7 @@ export default function EachProject() {
             value={{ style: { color: "orange", fontSize: "1.5em" } }}
           >
             <Button>
-              <RiEdit2Line />
+            <EditProject />
             </Button>
           </IconContext.Provider>
 
@@ -31,7 +32,7 @@ export default function EachProject() {
             value={{ style: { color: "red", fontSize: "1.5em" } }}
           >
             <Button>
-              <RiDeleteBin5Line />
+            <RiDeleteBin5Line />
             </Button>
           </IconContext.Provider>
         </Card.Body>
