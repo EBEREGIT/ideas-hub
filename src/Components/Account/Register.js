@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
 import { Button, Modal, Form } from "react-bootstrap";
 import Login from "./Login";
+import axios from "axios";
 
 export default function Register() {
   const [show, setShow] = useState(false);
@@ -34,13 +35,20 @@ export default function Register() {
 }
 
 const RegisterForm = () => {
+  // setup form fields
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [registering, setRegistering] = useState(false);
+
   // yup schema for validation
   const schema = yup.object().shape({
-    username: yup
+    userName: yup
       .string()
       .min(3)
       .matches(/^.[a-z0-9_]+$/, {
-        message: "Alphanumeric characters or underscores only. Cannot begin with a number",
+        message:
+          "Alphanumeric characters or underscores only. Cannot begin with a number",
         excludeEmptyString: true,
       })
       .required(),
@@ -67,23 +75,52 @@ const RegisterForm = () => {
   });
 
   // execute here when form is submitted
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setRegistering(true);
+    console.log(registering);
+
+    const method = "post",
+      url = "https://ideas-app-api.herokuapp.com/users/create",
+      headers = {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      };
+
+    // register
+    axios({ url, method, headers, data })
+      .then((result) => {
+        console.log(result)
+        setRegistering(false)
+        console.log(registering);
+      })
+      .catch((error) => {
+        console.log(error.message)
+        setRegistering(false)
+        console.log(registering);
+      });
+  };
 
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        {/* username */}
-        <Form.Group controlId="username">
-          <Form.Label>Username </Form.Label>
+        {/* userName */}
+        <Form.Group controlId="userName">
+          <Form.Label>userName </Form.Label>
           <Form.Control
             type="text"
-            name="username"
+            name="userName"
+            value={userName}
             ref={register}
-            placeholder="Username not less than 3 characters"
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="userName not less than 3 characters"
           />
 
-          {/* error message for username */}
-          <p className="text-danger"><b><i>{errors.username?.message}</i></b></p>
+          {/* error message for userName */}
+          <p className="text-danger">
+            <b>
+              <i>{errors.userName?.message}</i>
+            </b>
+          </p>
         </Form.Group>
 
         {/* Email */}
@@ -92,12 +129,18 @@ const RegisterForm = () => {
           <Form.Control
             type="text"
             name="email"
+            value={email}
             ref={register}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Address"
           />
 
           {/* error message for email */}
-          <p className="text-danger"><b><i>{errors.email?.message}</i></b></p>
+          <p className="text-danger">
+            <b>
+              <i>{errors.email?.message}</i>
+            </b>
+          </p>
         </Form.Group>
 
         {/* Password */}
@@ -107,11 +150,17 @@ const RegisterForm = () => {
             type="password"
             name="password"
             ref={register}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password not less than 6 characters"
           />
 
           {/* error message for password */}
-          <p className="text-danger"><b><i>{errors.password?.message}</i></b></p>
+          <p className="text-danger">
+            <b>
+              <i>{errors.password?.message}</i>
+            </b>
+          </p>
         </Form.Group>
 
         <p>
