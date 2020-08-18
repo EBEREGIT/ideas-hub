@@ -23,16 +23,22 @@
     .navbar-nav {
         margin-left: 45%;
 
+        button{
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-left: 5%;
+        }
+
         a {
             margin-top: 2%;
             padding-top: 0;
-            padding-left: 15%;
+            padding-left: 50%;
         }
 
-        .dropdown {
-            padding-left: 15%;
-            padding-top: 1.2%;
-        }
+        // .dropdown {
+        //     padding-left: 15%;
+        //     padding-top: 1.2%;
+        // }
     }
 
     form {

@@ -2,6 +2,15 @@
     .modal-content {
         background-color: $bg-purple;
 
+        a {
+            color: $purple-900;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
         input {
             &:focus {
                 border-color: $purple-900;
