@@ -12,6 +12,7 @@ import Footer from "./Components/Footer";
 import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import Projects from "./Pages/Projects";
+import ProtectedRoutes from "./Components/Helpers/ProtectedRoutes";
 
 function App() {
   return (
@@ -22,8 +23,12 @@ function App() {
       {/* switch between pages */}
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/projects" component={Projects} />
+
+        {/* Routes that must meet the login condition before being accessed */}
+        <ProtectedRoutes path="/dashboard" component={Dashboard} />
+
+
         <Route path="*" component={NotFound} />
       </Switch>
 
