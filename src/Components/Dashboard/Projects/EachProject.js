@@ -4,14 +4,14 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import EditProject from "./EditProject";
 
-export default function EachProject() {
+export default function EachProject(props) {
   return (
     <Col xs={12} sm={6} md={4} lg={4}>
       <Card style={{ width: "100%" }}>
         <Card.Body>
           {/* title */}
 
-          <Card.Title>Project Title</Card.Title>
+          <Card.Title>{props.projectName}</Card.Title>
           {/* more details */}
           <Card.Link href="#">See Full Details</Card.Link>
         </Card.Body>
