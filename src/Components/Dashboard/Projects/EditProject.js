@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import InstructionURLToolTip from "../Helpers/InstructionURLToolTip";
-import SampleURLToolTip from "../Helpers/SampleURLTooltip";
-import OtherDetailsToolTip from "../Helpers/OtherDetailsToolTip";
+import InstructionURLToolTip from "../../Helpers/InstructionURLToolTip";
+import SampleURLToolTip from "../../Helpers/SampleURLTooltip";
+import OtherDetailsToolTip from "../../Helpers/OtherDetailsToolTip";
+import { RiEdit2Line } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
@@ -10,7 +11,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-export default function AddProject() {
+export default function EditProject(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,31 +21,40 @@ export default function AddProject() {
     <>
       {/* pop toggle button */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a onClick={handleShow}>Add_Project</a>
+      <a onClick={handleShow}>
+        <RiEdit2Line />
+      </a>
 
       {/* modal */}
       <Modal show={show} onHide={handleClose}>
         {/* modal header */}
         <Modal.Header closeButton>
-          <Modal.Title>Add a Project</Modal.Title>
+          <Modal.Title>Edit a Project</Modal.Title>
         </Modal.Header>
 
         {/* modal body */}
         <Modal.Body>
-          <AddProjectForm />
+          <EditProjectForm
+            id={props.editId}
+            projectTitle={props.projectTitle}
+            instructionURL={props.instructionURL}
+            otherDetails={props.otherDetails}
+            sampleURL={props.sampleURL}
+            seniority={props.seniority}
+          />
         </Modal.Body>
       </Modal>
     </>
   );
 }
 
-const AddProjectForm = () => {
+const EditProjectForm = (props) => {
   // set initial state here
-  const [projectName, setProjectName] = useState(""),
-    [seniority, setSeniority] = useState(""),
-    [sampleURL, setSampleURL] = useState(""),
-    [instructionURL, setInstructionURL] = useState(""),
-    [otherDetails, setOtherDetails] = useState("");
+  const [projectName, setProjectName] = useState(props.projectTitle),
+    [seniority, setSeniority] = useState(props.seniority),
+    [sampleURL, setSampleURL] = useState(props.sampleURL),
+    [instructionURL, setInstructionURL] = useState(props.instructionURL),
+    [otherDetails, setOtherDetails] = useState(props.otherDetails);
 
   // validation schema
   const schema = yup.object().shape({
@@ -65,8 +75,8 @@ const AddProjectForm = () => {
   const onSubmit = (data) => {
     // get cookie from browser if logged in
     const token = cookies.get("ONYE-NA-ENYO-ISI-YA-ANA-APUTA"),
-      method = "post",
-      url = "https://ideas-app-api.herokuapp.com/projects/create",
+      method = "put",
+      url = `https://ideas-app-api.herokuapp.com/projects/edit/${props.id}`,
       headers = {
         Authorization: `Bearer ${token}`,
       };
@@ -193,7 +203,7 @@ const AddProjectForm = () => {
         </Form.Group>
 
         <Button className="custom-btn" type="submit">
-          Add Project
+          Edit Project
         </Button>
       </Form>
     </>

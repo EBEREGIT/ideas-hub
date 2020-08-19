@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Dropdown
-} from "react-bootstrap";
-import AddProject from "./Nav/AddProject";
-import Login from "./Account/Login";
-import Register from "./Account/Register";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
+import IsLoggedIn from "./Helpers/IsLoggedIn";
 
 export default function NavComponent() {
   return (
@@ -20,12 +10,12 @@ export default function NavComponent() {
         {/* logo */}
         <Navbar.Brand href="/">
           <img
-          src="https://res.cloudinary.com/dunksyqjj/image/upload/v1597094132/LogoMakr_6cGYpQ_h58asa.png"
-          width="35"
-          height="50"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
+            src="https://res.cloudinary.com/dunksyqjj/image/upload/v1597094132/LogoMakr_6cGYpQ_h58asa.png"
+            width="35"
+            height="50"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
         </Navbar.Brand>
 
         {/* search form */}
@@ -35,7 +25,9 @@ export default function NavComponent() {
             placeholder="Search"
             className="mr-sm-2 shadow-none"
           />
-          <Button><FaSearch /></Button>
+          <Button>
+            <FaSearch />
+          </Button>
         </Form>
 
         {/* toggle button */}
@@ -44,15 +36,7 @@ export default function NavComponent() {
         {/* collapseable menu */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            {/* menu */}
-            <AddProject />
-
-            {/* Account */}
-            <NavDropdown title="Account" id="basic-nav-dropdown">
-              <Login />
-              <Dropdown.Divider />
-              <Register />
-            </NavDropdown>
+            <IsLoggedIn />
           </Nav>
         </Navbar.Collapse>
       </Navbar>

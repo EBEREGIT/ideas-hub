@@ -1,13 +1,13 @@
 // external imports
 import React, { useEffect, useState } from "react";
-import { Col, Row, Pagination } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
-// local imports
-import SingleProject from "./SingleProject";
-import formatDate from "../Helpers/FormatDate";
+// internal imports
+import SingleProject from "../Components/Main/SingleProject";
+import formatDate from "../Components/Helpers/FormatDate";
 
-export default function MainProjects() {
+export default function Projects() {
   // set initial state
   const [projects, setProjects] = useState([]);
 
@@ -19,7 +19,6 @@ export default function MainProjects() {
     // get projects
     axios({ url, method })
       .then((result) => {
-        console.log(result.data.result)
         setProjects(result.data.result);
       })
       .catch((error) => {
@@ -28,13 +27,15 @@ export default function MainProjects() {
   }, []);
 
   return (
-    <>
-      <Col xs={12} sm={12} md={12} lg={12}>
-        <h3 className="headings">PORTFOLIO-WORTHY-PROJECTS</h3>
-      </Col>
+    <main className="wrapper">
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={12}>
+          <h1 className="headings">Portfolio-Worthy-Project</h1>
+        </Col>
+      </Row>
 
       <Row>
-      {projects &&
+        {projects &&
           projects.length > 0 &&
           projects.map((project) => (
             <SingleProject
@@ -50,22 +51,7 @@ export default function MainProjects() {
               seniority={project.seniority}
             />
           ))}
-        <Col xs={12} sm={12} md={12} lg={12}>
-          <Pagination>
-            <Pagination.First />
-            <Pagination.Prev />
-            <Pagination.Ellipsis />
-            <Pagination.Next />
-            <Pagination.Last />
-          </Pagination>
-        </Col>
-
-        <Col xs={12} sm={12} md={12} lg={12}>
-          <a href="#projects" className="see-all-btn">
-            See All Projects
-          </a>
-        </Col>
       </Row>
-    </>
+    </main>
   );
 }

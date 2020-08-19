@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers";
+import * as yup from "yup";
 import { Button, Modal, Form } from "react-bootstrap";
 import Register from "./Register";
+import axios from "axios";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -12,9 +18,7 @@ export default function Login() {
     <>
       {/* pop toggle button */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a onClick={handleShow}>
-        Login
-      </a>
+      <a onClick={handleShow}>Login</a>
 
       {/* modal */}
       <Modal show={show} onHide={handleClose}>
@@ -33,24 +37,118 @@ export default function Login() {
 }
 
 const LoginForm = () => {
+  // setup form fields
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(false);
+
+  // yup schema for validation
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .matches(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        {
+          message: "Please Enter a valid Email",
+          excludeEmptyString: true,
+        }
+      )
+      .required(),
+    password: yup
+      .string()
+      .required()
+      .min(6, "Password cannot be less than 6 characters"),
+  });
+
+  // get what we need from useform()
+  const { register, handleSubmit, errors } = useForm({
+    mode: "onBlur",
+    resolver: yupResolver(schema),
+  });
+
+  // execute here when form is submitted
+  const onSubmit = (data) => {
+    setLogin(true);
+    console.log(login);
+
+    const method = "post",
+      url = "https://ideas-app-api.herokuapp.com/users/read",
+      headers = {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      };
+
+    // login
+    axios({ url, method, headers, data })
+      .then((result) => {
+        console.log(result.data.token);
+        // create cookie with the token returned
+        cookies.set(
+          "ONYE-NA-ENYO-ISI-YA-ANA-APUTA",
+          result.data.token,
+          { path: "/" }
+        );
+        // redirect user to the feeds page
+        window.location.href = "/dashboard";
+
+        setLogin(false);
+        console.log(login);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setLogin(false);
+        console.log(login);
+      });
+  };
+
   return (
     <>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         {/* Email */}
         <Form.Group controlId="email">
           <Form.Label>Email </Form.Label>
-          <Form.Control type="email" placeholder="Email Address" />
+          <Form.Control
+            type="text"
+            name="email"
+            value={email}
+            ref={register}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email Address"
+          />
+
+          {/* error message for email */}
+          <p className="text-danger">
+            <b>
+              <i>{errors.email?.message}</i>
+            </b>
+          </p>
         </Form.Group>
 
         {/* Password */}
         <Form.Group controlId="password">
           <Form.Label>Password </Form.Label>
-          <Form.Control type="password" placeholder="Password not less than 6 characters" />
+          <Form.Control
+            type="password"
+            name="password"
+            ref={register}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password not less than 6 characters"
+          />
+
+          {/* error message for password */}
+          <p className="text-danger">
+            <b>
+              <i>{errors.password?.message}</i>
+            </b>
+          </p>
         </Form.Group>
 
-        <p>Don't have an account? <Register/></p>
+        <p>
+          Don't have an account? <Register />
+        </p>
 
-        <Button>Login</Button>
+        <Button type="submit">Login</Button>
       </Form>
     </>
   );
