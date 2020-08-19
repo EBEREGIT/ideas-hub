@@ -10,7 +10,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export default function Dashboard() {
-  // set state
+  // set initial state
   const [projects, setProjects] = useState([]);
 
   // make API call

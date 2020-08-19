@@ -5,12 +5,7 @@ import axios from "axios";
 
 // internal imports
 import SingleProject from "../Components/Main/SingleProject";
-
-// let projects = [];
-
-// for (let project = 0; project < 20; project++) {
-//   projects.push(<SingleProject />);
-// }
+import formatDate from "../Components/Helpers/FormatDate";
 
 export default function Projects() {
   // set initial state
@@ -24,8 +19,7 @@ export default function Projects() {
     // get projects
     axios({ url, method })
       .then((result) => {
-        console.log(result.data.result);
-        setProjects(result);
+        setProjects(result.data.result);
       })
       .catch((error) => {
         error = new Error();
@@ -40,7 +34,17 @@ export default function Projects() {
         </Col>
       </Row>
 
-      {/* <Row>{projects}</Row> */}
+      <Row>
+        {projects &&
+        projects.length > 0 &&
+        projects.map((project) => (
+          <SingleProject projectTitle={project.projectName}
+          userName={project.userName}
+          createdAt={formatDate(project.createdAt)}
+          updatedAt={formatDate(project.updatedAt)}
+          />
+        ))}
+        </Row>
     </main>
   );
 }
