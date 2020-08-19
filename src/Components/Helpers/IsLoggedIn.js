@@ -4,7 +4,6 @@ import AddProject from "../Nav/AddProject";
 import Logout from "../Account/Logout";
 import Login from "../Account/Login";
 import Register from "../Account/Register";
-import { NavDropdown, Dropdown } from "react-bootstrap";
 const cookies = new Cookies();
 
 export default function IsLoggedIn() {

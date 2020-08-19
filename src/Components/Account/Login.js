@@ -78,7 +78,7 @@ const LoginForm = () => {
         "Content-Type": "application/json",
       };
 
-    // register
+    // login
     axios({ url, method, headers, data })
       .then((result) => {
         console.log(result.data.token);
