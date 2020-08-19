@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ListGroup, Modal } from "react-bootstrap";
 
-export default function ProjectDetails() {
+export default function ProjectDetails(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,19 +17,24 @@ export default function ProjectDetails() {
       <Modal show={show} onHide={handleClose}>
         {/* modal header */}
         <Modal.Header closeButton>
-          <Modal.Title>Project Title</Modal.Title>
+          <Modal.Title>{props.projectTitle}</Modal.Title>
         </Modal.Header>
 
         {/* modal body */}
         <Modal.Body>
-          <Details />
+          <Details
+            instructionURL={props.instructionURL}
+            otherDetails={props.otherDetails}
+            sampleURL={props.sampleURL}
+            seniority={props.seniority}
+          />
         </Modal.Body>
 
         {/* modal footer */}
         <Modal.Footer>
           <p>
-            @ebereplenty | <span>Cr:</span> 11 Aug, 2020 | <span>Ed:</span> 12
-            Nov, 2020
+            @{props.userName} || <span>Cr:</span> {props.createdAt} || {" "}
+            <span>Ed:</span> {props.updatedAt}
           </p>
         </Modal.Footer>
       </Modal>
@@ -37,40 +42,40 @@ export default function ProjectDetails() {
   );
 }
 
-const Details = () => {
+const Details = (props) => {
   return (
     <>
       <ListGroup variant="flush">
         {/* seniority */}
         <ListGroup.Item>
           <h5>Seniority</h5>
-          <p>Beginner/Junior</p>
+          <p>{props.seniority}</p>
         </ListGroup.Item>
 
         {/* sample URL */}
         <ListGroup.Item>
           <h5>Sample Project</h5>
-          <a href="https://ideas-hub.netlify.app/">
-            https://ideas-hub.netlify.app/
+          <a href={props.sampleURL} target="_blank" rel="noopener noreferrer">
+            {props.sampleURL}
           </a>
         </ListGroup.Item>
 
         {/* instructions url */}
         <ListGroup.Item>
           <h5>Project Instruction</h5>
-          <a href="https://ideas-hub.netlify.app/">
-            https://ideas-hub.netlify.app/
+          <a
+            href={props.instructionURL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {props.instructionURL}
           </a>
         </ListGroup.Item>
 
         {/* other details */}
         <ListGroup.Item>
           <h5>Other Details</h5>
-          <p>
-            Ideas Hub solves this problem as Recruiters and other advanced
-            developers/designers can upload the kind of project that can make
-            junior developers/designers employable.
-          </p>
+          <p>{props.otherDetails}</p>
         </ListGroup.Item>
       </ListGroup>
     </>

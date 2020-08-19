@@ -18,13 +18,23 @@ export default function SingleProject(props) {
         {/* Date created and editted */}
         <ListGroup className="list-group-flush">
           <ListGroupItem>
-            <span>Cr:</span> {props.createdAt} | <span>Ed:</span> {props.updatedAt}
+            <span>Cr:</span> {props.createdAt} | <span>Ed:</span>{" "}
+            {props.updatedAt}
           </ListGroupItem>
         </ListGroup>
 
         {/* more details */}
         <Card.Body>
-          <ProjectDetails />
+          <ProjectDetails
+            projectTitle={props.projectTitle}
+            userName={props.userName}
+            createdAt={props.createdAt}
+            updatedAt={props.updatedAt}
+            instructionURL={props.instructionURL}
+            otherDetails={props.otherDetails}
+            sampleURL={props.sampleURL}
+            seniority={props.seniority}
+          />
         </Card.Body>
       </Card>
     </Col>
