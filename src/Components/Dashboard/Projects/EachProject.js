@@ -3,6 +3,7 @@ import { Col, Card, Button } from "react-bootstrap";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { IconContext } from "react-icons";
 import EditProject from "./EditProject";
+import ProjectDetails from "../../../ProjectDetails";
 
 export default function EachProject(props) {
   return (
@@ -11,9 +12,18 @@ export default function EachProject(props) {
         <Card.Body>
           {/* title */}
 
-          <Card.Title>{props.projectName}</Card.Title>
+          <Card.Title>{props.projectTitle}</Card.Title>
           {/* more details */}
-          <Card.Link href="#">See Full Details</Card.Link>
+          <ProjectDetails
+            projectTitle={props.projectTitle}
+            userName={props.userName}
+            createdAt={props.createdAt}
+            updatedAt={props.updatedAt}
+            instructionURL={props.instructionURL}
+            otherDetails={props.otherDetails}
+            sampleURL={props.sampleURL}
+            seniority={props.seniority}
+          />
         </Card.Body>
 
         {/* buttons */}
