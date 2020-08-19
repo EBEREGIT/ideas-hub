@@ -30,6 +30,7 @@ export default function DashboardProjects(props) {
             otherDetails={project.otherDetails}
             sampleURL={project.sampleURL}
             seniority={project.seniority}
+            id={project._id}
           />
         ))}
     </Row>

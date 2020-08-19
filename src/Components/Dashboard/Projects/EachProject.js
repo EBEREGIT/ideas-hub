@@ -33,7 +33,14 @@ export default function EachProject(props) {
             value={{ style: { color: "orange", fontSize: "1.5em" } }}
           >
             <Button>
-            <EditProject />
+              <EditProject
+                editId={props.id}
+                projectTitle={props.projectTitle}
+                instructionURL={props.instructionURL}
+                otherDetails={props.otherDetails}
+                sampleURL={props.sampleURL}
+                seniority={props.seniority}
+              />
             </Button>
           </IconContext.Provider>
 
@@ -42,7 +49,7 @@ export default function EachProject(props) {
             value={{ style: { color: "red", fontSize: "1.5em" } }}
           >
             <Button>
-            <RiDeleteBin5Line />
+              <RiDeleteBin5Line />
             </Button>
           </IconContext.Provider>
         </Card.Body>

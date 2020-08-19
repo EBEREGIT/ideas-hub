@@ -50,14 +50,8 @@ const AddProjectForm = () => {
   const schema = yup.object().shape({
     projectName: yup.string().required().min(4),
     seniority: yup.string().required().min(4),
-    sampleURL: yup
-      .string()
-      .required()
-      .url(),
-    instructionURL: yup
-      .string()
-      .required()
-      .url(),
+    sampleURL: yup.string().required().url(),
+    instructionURL: yup.string().required().url(),
     otherDetails: yup.string().required(),
   });
 
@@ -77,17 +71,17 @@ const AddProjectForm = () => {
         Authorization: `Bearer ${token}`,
       };
 
-      // login
+    // login
     axios({ url, method, headers, data })
-    .then((result) => {
-      console.log(result);
-      // redirect user to the feeds page
-      window.location.href = "/dashboard";
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  }
+      .then((result) => {
+        console.log(result);
+        // redirect user to the feeds page
+        window.location.href = "/dashboard";
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <>
@@ -98,7 +92,7 @@ const AddProjectForm = () => {
           <Form.Control
             type="text"
             name="projectName"
-            val={projectName}
+            value={projectName}
             ref={register}
             placeholder="Project Title"
             onChange={(e) => setProjectName(e.target.value)}
@@ -141,7 +135,7 @@ const AddProjectForm = () => {
           <Form.Control
             type="text"
             name="sampleURL"
-            valur={sampleURL}
+            value={sampleURL}
             ref={register}
             placeholder="Enter a URL to an already existing project as a sample"
             onChange={(e) => setSampleURL(e.target.value)}
