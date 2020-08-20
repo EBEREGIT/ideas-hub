@@ -1,7 +1,7 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import { Navbar, Nav, } from "react-bootstrap";
 import IsLoggedIn from "./Helpers/IsLoggedIn";
+import SearchForm from "./Nav/SearchForm";
 
 export default function NavComponent() {
   return (
@@ -19,16 +19,7 @@ export default function NavComponent() {
         </Navbar.Brand>
 
         {/* search form */}
-        <Form inline>
-          <FormControl
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2 shadow-none"
-          />
-          <Button>
-            <FaSearch />
-          </Button>
-        </Form>
+        <SearchForm />
 
         {/* toggle button */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

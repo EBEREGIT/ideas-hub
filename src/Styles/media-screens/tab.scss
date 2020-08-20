@@ -1,4 +1,15 @@
 @include media('>phone', '<=tablet') {
+    // search
+    #search_page{
+        h1{
+            padding-bottom: 3%;
+        }
+    
+        .search_result{
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+    }
 
     // navbar
     .navbar {

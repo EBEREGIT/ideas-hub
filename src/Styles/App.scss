@@ -32,6 +32,8 @@ body {
         border: 1px solid $purple-900;
     }
 
+    @import "./search.scss";
+
     @import "./dashboard.scss";
 
     @import "./modal.scss";
