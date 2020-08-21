@@ -25,7 +25,7 @@ export default function NavComponent() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         {/* collapseable menu */}
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav auth_links">
           <Nav>
             <IsLoggedIn />
           </Nav>

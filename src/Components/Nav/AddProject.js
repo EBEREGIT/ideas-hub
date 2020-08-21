@@ -20,7 +20,7 @@ export default function AddProject() {
     <>
       {/* pop toggle button */}
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a onClick={handleShow}>Add_Project</a>
+      <a onClick={handleShow} className="auth_links">Add_Project</a>
 
       {/* modal */}
       <Modal show={show} onHide={handleClose}>

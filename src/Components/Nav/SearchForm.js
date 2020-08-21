@@ -27,7 +27,7 @@ export default function SearchForm(props) {
   const onSubmit = (data) => {
     // create cookie with the data passed
     //   this will make it available in the whole app do the search component can recieve it
-    cookies.set("SEARCH-INPUT", data, { path: "/search" });
+    cookies.set("SEARCH-INPUT", data, { path: "/" });
     // redirect user to the feeds page
     window.location.href = "/search";
   };

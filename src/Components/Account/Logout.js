@@ -37,6 +37,7 @@ class Logout extends Component {
         type="submit"
         variant="outline-danger"
         onClick={() => this.logout()}
+        className="auth_links"
       >
         {isLoggingOut ? "Loggingout..." : "Logout"}
       </Button>

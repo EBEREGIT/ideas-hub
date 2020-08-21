@@ -15,18 +15,27 @@ export default function Search() {
   // initial state
   const [searchResult, setSearchResult] = useState([]);
   // get search input from browser cookie
-  const data = cookies.get("SEARCH-INPUT");
+  const searchInput = cookies.get("SEARCH-INPUT");
+
+  console.log(searchInput)
 
   // make API call here
-  useEffect((data) => {
-    const url = "https://ideas-app-api.herokuapp.com/projects/search",
+  useEffect(() => {
+    // get search input from browser cookie
+    const data = {
+        search: "eve",
+      },
+      url = "https://ideas-app-api.herokuapp.com/projects/search",
       method = "get";
+
+    console.log(data);
 
     // get projects
     axios({ url, method, data })
       .then((result) => {
+          console.log(result)
         setSearchResult(result.data);
-        cookies.remove("SEARCH-INPUT", { path: "/search" });
+        cookies.remove("SEARCH-INPUT", { path: "/" });
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +52,7 @@ export default function Search() {
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
           <h4 className="headings">Search Result for:</h4>
-          <h1 className="text-center">{data.search.toUpperCase()}</h1>
+          {/* <h1 className="text-center">{searchInput.search.toUpperCase()}</h1> */}
         </Col>
       </Row>
 

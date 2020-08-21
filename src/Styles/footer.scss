@@ -50,7 +50,12 @@ footer {
     .list-group-item {
         background-color: $purple-900;
         margin-left: 0;
-            padding-left: 5%;
+        padding-left: 5%;
+        cursor: pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
 
         a {
             color: white;
