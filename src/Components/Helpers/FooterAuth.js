@@ -1,18 +1,18 @@
 // external imports
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { ListGroup, Nav } from "react-bootstrap";
 import Cookies from "universal-cookie";
 
 // internal imports
 import AddProject from "../Nav/AddProject";
-import Logout from "../Account/Logout";
 import Login from "../Account/Login";
 import Register from "../Account/Register";
+import Logout from "../Account/Logout";
 
 // initialization
 const cookies = new Cookies();
 
-export default function IsLoggedIn() {
+export default function FooterAuth() {
   // get cookie from browser if logged in
   const token = cookies.get("ONYE-NA-ENYO-ISI-YA-ANA-APUTA");
 
@@ -21,17 +21,19 @@ export default function IsLoggedIn() {
     //   display these if logged in
     return (
       <>
-        <Nav.Link href="/dashboard" className="auth_links">Dashboard</Nav.Link>
-        <AddProject />
-        <Logout />
+        <ListGroup.Item><AddProject /></ListGroup.Item>
+
+        <ListGroup.Item id="footer-dashboard"><Nav.Link href="/dashboard" className="auth_links">Dashboard</Nav.Link></ListGroup.Item>
+
+        <ListGroup.Item><Logout /></ListGroup.Item>
       </>
     );
   } else {
     //   display these if not logged in
     return (
       <>
-        <Login />
-        <Register />
+        <ListGroup.Item><Register /></ListGroup.Item>
+        <ListGroup.Item><Login /></ListGroup.Item>
       </>
     );
   }

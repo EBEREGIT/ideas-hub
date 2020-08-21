@@ -13,6 +13,7 @@ import NotFound from "./Pages/NotFound";
 import Dashboard from "./Pages/Dashboard";
 import Projects from "./Pages/Projects";
 import ProtectedRoutes from "./Components/Helpers/ProtectedRoutes";
+import Search from "./Pages/Search";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/projects" component={Projects} />
-
+        <Route exact path="/search" component={Search} />
+        
         {/* Routes that must meet the login condition before being accessed */}
         <ProtectedRoutes path="/dashboard" component={Dashboard} />
 

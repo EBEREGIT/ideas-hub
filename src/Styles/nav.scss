@@ -4,6 +4,27 @@
     background-color: white !important;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 
+    // anchor tags after login
+    .auth_links {
+        padding: 0 !important;
+        margin: 0 !important;
+
+        &:first-child {
+            margin-left: -40% !important;
+        }
+
+        margin-right: 20% !important;
+
+        &:last-child {
+            margin-top: -1% !important;
+            margin-left: -2% !important;
+            padding: 2% !important;
+            padding-left: 5% !important;
+            padding-right: 5% !important;
+        }
+    }
+
+    // general anchor settings including the logo
     a {
         font-size: 1.2rem;
         color: $purple-900 !important;
@@ -20,27 +41,27 @@
         }
     }
 
+    // navbar
     .navbar-nav {
         margin-left: 45%;
 
-        button{
-            margin-left: 10%;
-            margin-right: 10%;
-            padding-left: 5%;
-        }
-
+        // the anchor tags before login
         a {
             margin-top: 2%;
             padding-top: 0;
-            padding-left: 50%;
-        }
 
-        // .dropdown {
-        //     padding-left: 15%;
-        //     padding-top: 1.2%;
-        // }
+
+            &:first-child {
+                padding-left: 90%;
+            }
+
+            &:last-child {
+                padding-left: 30%;
+            }
+        }
     }
 
+    // search form
     form {
         margin-left: 33%;
 

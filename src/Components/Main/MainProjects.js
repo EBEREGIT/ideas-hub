@@ -19,7 +19,7 @@ export default function MainProjects() {
     // get projects
     axios({ url, method })
       .then((result) => {
-        console.log(result.data.result)
+        console.log(result.data.result);
         setProjects(result.data.result);
       })
       .catch((error) => {
@@ -33,8 +33,9 @@ export default function MainProjects() {
         <h3 className="headings">PORTFOLIO-WORTHY-PROJECTS</h3>
       </Col>
 
+      {/* all projects */}
       <Row>
-      {projects &&
+        {projects &&
           projects.length > 0 &&
           projects.map((project) => (
             <SingleProject
@@ -42,7 +43,6 @@ export default function MainProjects() {
               userName={project.userName}
               createdAt={formatDate(project.createdAt)}
               updatedAt={formatDate(project.updatedAt)}
-
               // this is for the see more button
               instructionURL={project.instructionURL}
               otherDetails={project.otherDetails}
@@ -50,6 +50,8 @@ export default function MainProjects() {
               seniority={project.seniority}
             />
           ))}
+
+        {/* pagination */}
         <Col xs={12} sm={12} md={12} lg={12}>
           <Pagination>
             <Pagination.First />
@@ -60,8 +62,9 @@ export default function MainProjects() {
           </Pagination>
         </Col>
 
+        {/* see all button */}
         <Col xs={12} sm={12} md={12} lg={12}>
-          <a href="#projects" className="see-all-btn">
+          <a href="/projects" className="see-all-btn">
             See All Projects
           </a>
         </Col>

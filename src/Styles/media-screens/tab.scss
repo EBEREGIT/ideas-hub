@@ -1,9 +1,38 @@
 @include media('>phone', '<=tablet') {
 
+    // search
+    #search_page {
+        h1 {
+            padding-bottom: 3%;
+        }
+
+        .search_result {
+            padding-top: 10%;
+            padding-bottom: 5%;
+        }
+    }
+
     // navbar
     .navbar {
         .navbar-toggler {
             margin-right: -2%;
+        }
+
+        // anchor tags after login
+        .auth_links {
+            margin-right: 0 !important;
+            text-align: center !important;
+            margin-top: 3% !important;
+
+            &:first-child {
+                margin-left: 0 !important;
+            }
+
+
+            &:last-child {
+                margin-top: 3% !important;
+                margin-left: 0 !important;
+            }
         }
 
         .navbar-collapse {
