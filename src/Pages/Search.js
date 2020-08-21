@@ -17,28 +17,19 @@ export default function Search() {
   // get search input from browser cookie
   const searchInput = cookies.get("SEARCH-INPUT");
 
-  console.log(searchInput)
-
   // make API call here
   useEffect(() => {
     // get search input from browser cookie
-    const data = {
-        search: "eve",
-      },
+    const data = cookies.get("SEARCH-INPUT"),
       url = "https://ideas-app-api.herokuapp.com/projects/search",
-      method = "get";
-
-    console.log(data);
+      method = "post";
 
     // get projects
     axios({ url, method, data })
       .then((result) => {
-          console.log(result)
         setSearchResult(result.data);
-        cookies.remove("SEARCH-INPUT", { path: "/" });
       })
       .catch((error) => {
-        console.log(error);
         error = new Error();
       });
   }, []);
@@ -52,15 +43,30 @@ export default function Search() {
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
           <h4 className="headings">Search Result for:</h4>
-          {/* <h1 className="text-center">{searchInput.search.toUpperCase()}</h1> */}
+
+          {/* if there is a search word, display it */}
+          {searchInput ? (
+            <h1 className="text-center">{searchInput.search.toUpperCase()}</h1>
+          ) : (
+            <h1 className="text-center text-danger">
+              You haven't Entered any search word
+            </h1>
+          )}
         </Col>
       </Row>
 
-      {/* search result for project title */}
-      <ProjectTitleResult projectTitleResult={projectTitleResult} />
+      {/* show search result or a pending message */}
+      {searchInput ? (
+        <>
+          <ProjectTitleResult projectTitleResult={projectTitleResult} />
 
-      {/* search result for Other Details */}
-      <OtherDetailsResult otherDetailsResult={otherDetailsResult} />
+          <OtherDetailsResult otherDetailsResult={otherDetailsResult} />
+        </>
+      ) : (
+        <h3 className="text-center text-danger">
+          Your Search Result will Appear here...
+        </h3>
+      )}
     </main>
   );
 }
