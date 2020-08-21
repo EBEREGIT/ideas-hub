@@ -9,9 +9,18 @@ body {
 body {
     background-color: $bg-purple;
 
+    // servers as custom container
     .wrapper {
         margin: auto;
         width: 96%;
+    }
+
+    // logout button
+    #logout{
+        &:hover{
+            background-color: white;
+            color: red;
+        }
     }
 
     .custom-btn {

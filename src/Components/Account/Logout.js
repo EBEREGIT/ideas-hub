@@ -35,9 +35,10 @@ class Logout extends Component {
       <Button
         size="sm"
         type="submit"
-        variant="outline-danger"
+        variant="danger"
         onClick={() => this.logout()}
         className="auth_links"
+        id="logout"
       >
         {isLoggingOut ? "Loggingout..." : "Logout"}
       </Button>
