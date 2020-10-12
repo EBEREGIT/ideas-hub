@@ -69,7 +69,6 @@ const LoginForm = () => {
   // execute here when form is submitted
   const onSubmit = (data) => {
     setLogin(true);
-    console.log(login);
 
     const method = "post",
       url = "https://ideas-app-api.herokuapp.com/users/read",
@@ -83,23 +82,23 @@ const LoginForm = () => {
       .then((result) => {
         console.log(result.data.token);
         // create cookie with the token returned
-        cookies.set(
-          "ONYE-NA-ENYO-ISI-YA-ANA-APUTA",
-          result.data.token,
-          { path: "/" }
-        );
+        cookies.set("ONYE-NA-ENYO-ISI-YA-ANA-APUTA", result.data.token, {
+          path: "/",
+        });
         // redirect user to the feeds page
         window.location.href = "/dashboard";
 
         setLogin(false);
-        console.log(login);
       })
       .catch((error) => {
         console.log(error.message);
         setLogin(false);
-        console.log(login);
       });
   };
+
+  if (login) {
+    return <h3>Loading</h3>;
+  }
 
   return (
     <>

@@ -9,8 +9,8 @@ const cookies = new Cookies();
 
 export default function SearchForm(props) {
   // set initial states
-  const [search, setSearch] = useState(""),
-    [isSearching, setIsSearching] = useState(false);
+  const [search, setSearch] = useState("");
+  // const [isSearching, setIsSearching] = useState(false);
 
   // yup schema for validation
   const schema = yup.object().shape({

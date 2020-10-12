@@ -1,0 +1,23 @@
+#loading-spinner {
+    padding: 20%;
+    height: auto;
+
+    #loading-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #spinner {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 5%;
+
+        .spinner-border {
+            width: 10rem;
+            height: 10rem;
+            border-width: 0.5em;
+        }
+    }
+}
