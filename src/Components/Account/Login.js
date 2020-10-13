@@ -6,6 +6,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import Register from "./Register";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import ButtonSpinner from "../Helpers/ButtonSpinner";
 const cookies = new Cookies();
 
 export default function Login() {
@@ -87,7 +88,6 @@ const LoginForm = () => {
         });
         // redirect user to the feeds page
         window.location.href = "/dashboard";
-
         setLogin(false);
       })
       .catch((error) => {
@@ -95,10 +95,6 @@ const LoginForm = () => {
         setLogin(false);
       });
   };
-
-  if (login) {
-    return <h3>Loading</h3>;
-  }
 
   return (
     <>
@@ -147,7 +143,9 @@ const LoginForm = () => {
           Don't have an account? <Register />
         </p>
 
-        <Button type="submit">Login</Button>
+        <Button type="submit">
+          {login ? <ButtonSpinner message="Loading..." /> : "Login"}
+        </Button>
       </Form>
     </>
   );

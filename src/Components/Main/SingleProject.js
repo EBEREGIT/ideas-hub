@@ -4,7 +4,15 @@ import ProjectDetails from "../../ProjectDetails";
 
 export default function SingleProject(props) {
   return (
-    <Col xs={12} sm={6} md={4} lg={3}>
+    <Col
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
+    >
       <Card style={{ width: "100%" }}>
         <Card.Body>
           {/* title */}

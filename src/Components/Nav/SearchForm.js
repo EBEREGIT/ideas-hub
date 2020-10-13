@@ -5,12 +5,13 @@ import * as yup from "yup";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import Cookies from "universal-cookie";
+import ButtonSpinner from "../Helpers/ButtonSpinner";
 const cookies = new Cookies();
 
 export default function SearchForm(props) {
   // set initial states
   const [search, setSearch] = useState("");
-  // const [isSearching, setIsSearching] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   // yup schema for validation
   const schema = yup.object().shape({
@@ -25,6 +26,7 @@ export default function SearchForm(props) {
 
   // execute here when form is submitted
   const onSubmit = (data) => {
+    setIsSearching(true);
     // create cookie with the data passed
     //   this will make it available in the whole app do the search component can recieve it
     cookies.set("SEARCH-INPUT", data, { path: "/search" });
@@ -47,7 +49,7 @@ export default function SearchForm(props) {
         />
 
         <Button type="submit">
-          <FaSearch />
+          {isSearching ? <ButtonSpinner/> : <FaSearch />}
         </Button>
       </Form>
     </>

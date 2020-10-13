@@ -6,10 +6,12 @@ import axios from "axios";
 // internal imports
 import SingleProject from "../Components/Main/SingleProject";
 import formatDate from "../Components/Helpers/FormatDate";
+import LoadingSpinner from "../Components/Helpers/LoadingSpinner";
 
 export default function Projects() {
   // set initial state
   const [projects, setProjects] = useState([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
 
   // make API call
   useEffect(() => {
@@ -20,11 +22,18 @@ export default function Projects() {
     axios({ url, method })
       .then((result) => {
         setProjects(result.data.result);
+        setProjectsLoading(false);
       })
       .catch((error) => {
         error = new Error();
+        setProjectsLoading(false);
       });
   }, []);
+
+  // render here if projects are not retrieved from the DB yet
+  if (projectsLoading) {
+    return <LoadingSpinner message="Projects Loading..." />;
+  }
 
   return (
     <main className="wrapper">

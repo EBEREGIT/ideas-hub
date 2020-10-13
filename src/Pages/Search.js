@@ -38,6 +38,18 @@ export default function Search() {
   const projectTitleResult = searchResult.projectNameResult,
     otherDetailsResult = searchResult.otherDetailsResult;
 
+  // get number of search result
+  let projectTitleTotal;
+  let otherDetailsTotal;
+
+  for (projectTitleTotal in projectTitleResult) {
+    projectTitleTotal++;
+  }
+
+  for (otherDetailsTotal in otherDetailsResult) {
+    otherDetailsTotal++;
+  }
+
   return (
     <main className="wrapper" id="search_page">
       <Row>
@@ -58,9 +70,15 @@ export default function Search() {
       {/* show search result or a pending message */}
       {searchInput ? (
         <>
-          <ProjectTitleResult projectTitleResult={projectTitleResult} />
+          <ProjectTitleResult
+            projectTitleResult={projectTitleResult}
+            total={projectTitleTotal}
+          />
 
-          <OtherDetailsResult otherDetailsResult={otherDetailsResult} />
+          <OtherDetailsResult
+            otherDetailsResult={otherDetailsResult}
+            total={otherDetailsTotal}
+          />
         </>
       ) : (
         <h3 className="text-center text-danger">

@@ -1,9 +1,11 @@
 // external imports
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import AOS from "aos";
 
 // assets
 import "./Styles/App.scss";
+import "aos/dist/aos.css";
 
 // internal imports
 import NavComponent from "./Components/NavComponent";
@@ -14,6 +16,9 @@ import Dashboard from "./Pages/Dashboard";
 import Projects from "./Pages/Projects";
 import ProtectedRoutes from "./Components/Helpers/ProtectedRoutes";
 import Search from "./Pages/Search";
+
+// initializations
+AOS.init();
 
 function App() {
   return (
