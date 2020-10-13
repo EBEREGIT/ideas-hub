@@ -81,7 +81,6 @@ const LoginForm = () => {
     // login
     axios({ url, method, headers, data })
       .then((result) => {
-        console.log(result.data.token);
         // create cookie with the token returned
         cookies.set("ONYE-NA-ENYO-ISI-YA-ANA-APUTA", result.data.token, {
           path: "/",
@@ -91,7 +90,7 @@ const LoginForm = () => {
         setLogin(false);
       })
       .catch((error) => {
-        console.log(error.message);
+        error = new Error();
         setLogin(false);
       });
   };

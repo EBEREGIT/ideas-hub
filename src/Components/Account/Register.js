@@ -1,10 +1,18 @@
+// external imports
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
 import { Button, Modal, Form } from "react-bootstrap";
-import Login from "./Login";
 import axios from "axios";
+import Cookies from "universal-cookie";
+
+// internal imports
+import Login from "./Login";
+import ButtonSpinner from "../Helpers/ButtonSpinner";
+
+// initializations
+const cookies = new Cookies();
 
 export default function Register() {
   const [show, setShow] = useState(false);
@@ -77,7 +85,6 @@ const RegisterForm = () => {
   // execute here when form is submitted
   const onSubmit = (data) => {
     setRegistering(true);
-    console.log(registering);
 
     const method = "post",
       url = "https://ideas-app-api.herokuapp.com/users/create",
@@ -88,15 +95,40 @@ const RegisterForm = () => {
 
     // register
     axios({ url, method, headers, data })
-      .then((result) => {
-        console.log(result)
-        setRegistering(false)
-        console.log(registering);
+      .then(() => {
+        // login parameters
+        const loginURL = "https://ideas-app-api.herokuapp.com/users/read",
+          loginData = {
+            email: data.email,
+            password: data.password,
+          };
+
+        // login
+        axios({ url: loginURL, method, headers, data: loginData })
+          .then((loginResult) => {
+            // create cookie with the token returned
+            cookies.set(
+              "ONYE-NA-ENYO-ISI-YA-ANA-APUTA",
+              loginResult.data.token,
+              {
+                path: "/",
+              }
+            );
+            // redirect user to the feeds page
+            window.location.href = "/dashboard";
+          })
+
+          // login error
+          .catch((error) => {
+            error = new Error();
+            setRegistering(false);
+          });
       })
+
+      // register error
       .catch((error) => {
-        console.log(error.message)
-        setRegistering(false)
-        console.log(registering);
+        error = new Error();
+        setRegistering(false);
       });
   };
 
@@ -167,7 +199,9 @@ const RegisterForm = () => {
           Already Registered? <Login />
         </p>
 
-        <Button type="submit">Register</Button>
+        <Button type="submit">
+          {registering ? <ButtonSpinner message="Registering..." /> : "Register"}
+        </Button>
       </Form>
     </>
   );
