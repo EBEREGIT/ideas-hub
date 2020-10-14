@@ -1,12 +1,17 @@
+// external imports
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
 import { Button, Modal, Form } from "react-bootstrap";
-import Register from "./Register";
 import axios from "axios";
 import Cookies from "universal-cookie";
+
+// internal imports
+import Register from "./Register";
 import ButtonSpinner from "../Helpers/ButtonSpinner";
+
+// initialization
 const cookies = new Cookies();
 
 export default function Login() {
