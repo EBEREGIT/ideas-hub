@@ -1,15 +1,17 @@
 // external imports
 import React, { useEffect, useState } from "react";
-import { Col, Row, Pagination } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 
 // local imports
 import SingleProject from "./SingleProject";
 import formatDate from "../Helpers/FormatDate";
+import LoadingSpinner from "../Helpers/LoadingSpinner";
 
 export default function MainProjects() {
   // set initial state
   const [projects, setProjects] = useState([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
 
   // make API call
   useEffect(() => {
@@ -19,14 +21,20 @@ export default function MainProjects() {
     // get projects
     axios({ url, method })
       .then((result) => {
-        console.log(result.data.result);
         setProjects(result.data.result);
+        setProjectsLoading(false);
       })
       .catch((error) => {
         error = new Error();
       });
   }, []);
 
+  // render here if projects are not retrieved from the DB yet
+  if (projectsLoading) {
+    return <LoadingSpinner message="Projects Loading..." />;
+  }
+
+  // render this if projects have been retrieved from the DB
   return (
     <>
       <Col xs={12} sm={12} md={12} lg={12}>
@@ -50,17 +58,6 @@ export default function MainProjects() {
               seniority={project.seniority}
             />
           ))}
-
-        {/* pagination */}
-        <Col xs={12} sm={12} md={12} lg={12}>
-          <Pagination>
-            <Pagination.First />
-            <Pagination.Prev />
-            <Pagination.Ellipsis />
-            <Pagination.Next />
-            <Pagination.Last />
-          </Pagination>
-        </Col>
 
         {/* see all button */}
         <Col xs={12} sm={12} md={12} lg={12}>

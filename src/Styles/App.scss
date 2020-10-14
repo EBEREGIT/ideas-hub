@@ -9,6 +9,12 @@ body {
 body {
     background-color: $bg-purple;
 
+    // button spinner
+    @import "./btn-spinner.scss";
+
+    // loading spinner
+    @import "./loading-spinner.scss";
+
     // servers as custom container
     .wrapper {
         margin: auto;

@@ -1,11 +1,17 @@
+// external imports
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 import * as yup from "yup";
 import { Button, Modal, Form } from "react-bootstrap";
-import Register from "./Register";
 import axios from "axios";
 import Cookies from "universal-cookie";
+
+// internal imports
+import Register from "./Register";
+import ButtonSpinner from "../Helpers/ButtonSpinner";
+
+// initialization
 const cookies = new Cookies();
 
 export default function Login() {
@@ -69,7 +75,6 @@ const LoginForm = () => {
   // execute here when form is submitted
   const onSubmit = (data) => {
     setLogin(true);
-    console.log(login);
 
     const method = "post",
       url = "https://ideas-app-api.herokuapp.com/users/read",
@@ -81,23 +86,17 @@ const LoginForm = () => {
     // login
     axios({ url, method, headers, data })
       .then((result) => {
-        console.log(result.data.token);
         // create cookie with the token returned
-        cookies.set(
-          "ONYE-NA-ENYO-ISI-YA-ANA-APUTA",
-          result.data.token,
-          { path: "/" }
-        );
+        cookies.set("ONYE-NA-ENYO-ISI-YA-ANA-APUTA", result.data.token, {
+          path: "/",
+        });
         // redirect user to the feeds page
         window.location.href = "/dashboard";
-
         setLogin(false);
-        console.log(login);
       })
       .catch((error) => {
-        console.log(error.message);
+        error = new Error();
         setLogin(false);
-        console.log(login);
       });
   };
 
@@ -148,7 +147,9 @@ const LoginForm = () => {
           Don't have an account? <Register />
         </p>
 
-        <Button type="submit">Login</Button>
+        <Button type="submit">
+          {login ? <ButtonSpinner message="Loading..." /> : "Login"}
+        </Button>
       </Form>
     </>
   );

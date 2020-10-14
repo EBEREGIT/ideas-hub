@@ -13,7 +13,16 @@ export default function OtherDetailsResult(props) {
     <>
       <Row>
         <Col xs={12} sm={12} md={12} lg={12}>
-          <h4 className="search_result">Results from Other Details:</h4>
+          <h4 className="search_result">
+            Results from Other Details:
+            <span className="text-danger">
+              {props.total ? (
+                <strong> {props.total}</strong>
+              ) : (
+                " No Match Found"
+              )}
+            </span>
+          </h4>
         </Col>
       </Row>
 
