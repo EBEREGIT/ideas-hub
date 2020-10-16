@@ -46,7 +46,7 @@ export default function FooterContact() {
           {/* name */}
           <Form.Group as={Col} controlId="exampleForm.ControlInput1">
             <Form.Label>Your Name</Form.Label>
-            <Form.Control type="name" name="name" placeholder="Your Name" />
+            <Form.Control type="name" name="name" placeholder="Your Name" required/>
           </Form.Group>
 
           {/* email */}
@@ -56,7 +56,7 @@ export default function FooterContact() {
               type="email"
               name="email"
               placeholder="Your Email Address"
-            />
+            required/>
           </Form.Group>
         </Form.Row>
 
@@ -67,13 +67,13 @@ export default function FooterContact() {
             type="text"
             name="subject"
             placeholder="Subject of your message"
-          />
+          required/>
         </Form.Group>
 
         {/* message */}
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Message</Form.Label>
-          <Form.Control as="textarea" name="message_body" rows="5" />
+          <Form.Control as="textarea" name="message_body" rows="5" required/>
         </Form.Group>
 
         {/* feedback */}
