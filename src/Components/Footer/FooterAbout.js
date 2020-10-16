@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap";
 
 export default function FooterAbout() {
   return (
-    <Col xs={12} sm={12} md={5} lg={5} id="about">
+    <Col xs={12} sm={12} md={4} lg={4} id="about">
       <h4 className="footer-headings">About</h4>
       <p>
         Recruiters always complain that they don’t see portfolio-worthy-projects
