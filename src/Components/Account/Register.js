@@ -53,12 +53,6 @@ const RegisterForm = () => {
   const schema = yup.object().shape({
     userName: yup
       .string()
-      .min(3)
-      .matches(/^.[a-z0-9_]+$/, {
-        message:
-          "Alphanumeric characters or underscores only. Cannot begin with a number",
-        excludeEmptyString: true,
-      })
       .required(),
     email: yup
       .string()
@@ -144,7 +138,7 @@ const RegisterForm = () => {
             value={userName}
             ref={register}
             onChange={(e) => setUserName(e.target.value)}
-            placeholder="userName not less than 3 characters"
+            placeholder="userName"
           />
 
           {/* error message for userName */}
