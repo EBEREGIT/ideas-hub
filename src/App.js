@@ -31,16 +31,26 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/search" component={Search} />
-        
+
         {/* Routes that must meet the login condition before being accessed */}
         <ProtectedRoutes path="/dashboard" component={Dashboard} />
-
 
         <Route path="*" component={NotFound} />
       </Switch>
 
       {/* footer */}
       <Footer />
+
+      {/* whatsapp icon */}
+      <a
+        href="https://wa.me/2348031904145"
+        class="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {" "}
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>
     </>
   );
 }
